@@ -1,4 +1,4 @@
-import { Box, Stack } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 
 const items = [
   "tomato",
@@ -23,16 +23,19 @@ export default function Home() {
       alignItems={"center"}
     >
       <Stack width="800px" height="400px" spacing={2} overflow={"scroll"}>
-        {items.map((item) => (
-          <Box
-            key={item}
-            bgcolor="black"
-            color="crimson"
-            p={2}
-            textAlign="center"
-            fontWeight={700}
-          >
-            {item}
+        {items.map((item, index) => (
+          <Box key={index} bgcolor="black" p={2} textAlign="center">
+            <Typography
+              variant="h6"
+              color={"crimson"}
+              textAlign={"center"}
+              fontWeight={"bold"}
+            >
+              {
+                //Capitalizing the first letter of the item
+                item.charAt(0).toUpperCase() + item.slice(1)
+              }
+            </Typography>
           </Box>
         ))}
       </Stack>
